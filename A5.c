@@ -228,3 +228,74 @@
 //     }
 //     return 0;
 // }
+
+
+// Assignment 5(10)
+
+// #include <stdio.h>
+// void reverse(int *arr, int n) {
+//     for (int i = 0; i < n / 2; i++) {
+//         int temp = *(arr + i);
+//         *(arr + i) = *(arr + n - i - 1);
+//         *(arr + n - i - 1) = temp;
+//     }
+// }
+
+// int main() {
+//     int n;
+//     printf("Enter the number of elements: ");
+//     scanf("%d", &n);
+//     int arr[n];
+//     int *ptr = arr;
+
+//     printf("Enter the elements:\n");
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", (ptr + i));
+//     }
+
+//     printf("Original array: ");
+//     for (int i = 0; i < n; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     printf("\n");
+
+//     reverse(ptr, n);
+
+//     printf("Reversed array: ");
+//     for (int i = 0; i < n; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     return 0;
+// }
+
+
+// Assignment 5(11)
+
+#include <stdio.h>
+void convertToBinary(int n, int *binary, int *size) {
+    int i = 0;
+    while (n > 0) {
+        *(binary + i) = n % 2;
+        n /= 2;
+        i++;
+    }
+    *size = i;
+}
+int main() {
+    int n;
+    printf("Enter a positive decimal integer: ");
+    scanf("%d", &n);
+    int binary[32], size;
+    int *ptr = binary;
+
+    convertToBinary(n, ptr, &size);
+    
+    printf("Binary representation: ");
+    int count = 0;
+    for (int i = size - 1; i >= 0; i--) {
+        printf("%d", *(ptr + i));
+        count++;
+    }
+    printf("\n%d", count);
+    return 0;
+}
