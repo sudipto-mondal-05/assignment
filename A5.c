@@ -148,24 +148,24 @@
 
 //Assignment 5(7)
 
-#include <stdio.h>
-int main(){
-    int num, sum = 0;
-    int *total = &sum;
-    printf("Enter the size of the array: ");
-    scanf("%d", &num);
-    int *n = &num;
-    int arr[*n];
-    int *ptr = &arr[0];
+// #include <stdio.h>
+// int main(){
+//     int num, sum = 0;
+//     int *total = &sum;
+//     printf("Enter the size of the array: ");
+//     scanf("%d", &num);
+//     int *n = &num;
+//     int arr[*n];
+//     int *ptr = &arr[0];
     
-    printf("Enter the elements of the array:\n ");
-    for (int i = 0; i < *n; i++) {
-        scanf("%d", (ptr + i));
-        *total = *total + *(ptr + i);
-    }
-    printf("The sum of elements of the array are : %d", *total);
-    return 0;
-}
+//     printf("Enter the elements of the array:\n ");
+//     for (int i = 0; i < *n; i++) {
+//         scanf("%d", (ptr + i));
+//         *total = *total + *(ptr + i);
+//     }
+//     printf("The sum of elements of the array are : %d", *total);
+//     return 0;
+// }
 
 
 //Assignmnet 5(8)
