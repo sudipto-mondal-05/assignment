@@ -271,31 +271,28 @@
 
 // Assignment 5(11)
 
-#include <stdio.h>
-void convertToBinary(int n, int *binary, int *size) {
-    int i = 0;
-    while (n > 0) {
-        *(binary + i) = n % 2;
-        n /= 2;
-        i++;
-    }
-    *size = i;
-}
-int main() {
-    int n;
-    printf("Enter a positive decimal integer: ");
-    scanf("%d", &n);
-    int binary[32], size;
-    int *ptr = binary;
+// #include <stdio.h>
+// void convertToBinary(int n, int *binary, int *size) {
+//     int i = 0;
+//     while (n > 0) {
+//         *(binary + i) = n % 2;
+//         n /= 2;
+//         i++;
+//     }
+//     *size = i;
+// }
+// int main() {
+//     int n;
+//     printf("Enter a positive decimal integer: ");
+//     scanf("%d", &n);
+//     int binary[32], size;
+//     int *ptr = binary;
 
-    convertToBinary(n, ptr, &size);
+//     convertToBinary(n, ptr, &size);
     
-    printf("Binary representation: ");
-    int count = 0;
-    for (int i = size - 1; i >= 0; i--) {
-        printf("%d", *(ptr + i));
-        count++;
-    }
-    printf("\n%d", count);
-    return 0;
-}
+//     printf("Binary representation: ");
+//     for (int i = size - 1; i >= 0; i--) {
+//         printf("%d", *(ptr + i));
+//     }
+//     return 0;
+// }
