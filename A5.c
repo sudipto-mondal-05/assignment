@@ -296,3 +296,59 @@
 //     }
 //     return 0;
 // }
+
+
+// Assignment 5(12)    
+
+// #include <stdio.h>
+// int main() {
+//     int arr1[5], arr2[5], result[5];
+//     int *ptr1 = arr1, *ptr2 = arr2, *res = result;
+
+//     printf("Enter 5 elements for the first array:\n");
+//     for (int i = 0; i < 5; i++) {
+//         scanf("%d", (ptr1 + i));
+//     }
+
+//     printf("Enter 5 elements for the second array:\n");
+//     for (int i = 0; i < 5; i++) {
+//         scanf("%d", (ptr2 + i));
+//     }
+
+//     printf("Resultant array: ");
+//     for (int i = 0; i < 5; i++) {
+//         *(res + i) = *(ptr1 + i) + *(ptr2 + i);
+//         printf("%d ", *(res + i));
+//     }
+//     return 0;
+// }
+
+
+// Assignment 5(13)
+
+// #include <stdio.h>
+// int main() {
+//     int arr[10];
+//     int *ptr = arr;
+
+//     printf("Enter 10 elements:\n");
+//     for (int i = 0; i < 10; i++) {
+//         scanf("%d", (ptr + i));
+//     }
+
+//     for (int i = 0; i < 10; i += 2) {
+//         int temp = *(ptr + i);
+//         *(ptr + i) = *(ptr + i + 1);
+//         *(ptr + i + 1) = temp;
+//     }
+
+//     printf("Swapped array: ");
+//     for (int i = 0; i < 10; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     return 0;
+// }
+
+
+// Assignment 5(14)
+
