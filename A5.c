@@ -352,3 +352,87 @@
 
 // Assignment 5(14)
 
+// #include <stdio.h>
+// int main() {
+//     int n, pos, value;
+//     printf("Enter the number of elements: ");
+//     scanf("%d", &n);
+//     int arr[n + 1];
+//     int *ptr = arr;
+//     printf("Enter the elements:\n");
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", (ptr + i));
+//     }
+//     printf("Enter the position and value to insert: \n");
+//     scanf("%d %d", &pos, &value);
+//     for (int i = n; i >= pos; i--) {
+//         *(ptr + i) = *(ptr + i - 1);
+//     }
+//     *(ptr + pos - 1) = value;
+//     printf("Updated array: ");
+//     for (int i = 0; i <= n; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     return 0;
+// }
+
+
+// Assignment 5(15)
+
+// #include <stdio.h>
+// int main() {
+//     int n, pos;
+//     printf("Enter the number of elements: ");
+//     scanf("%d", &n);
+//     int arr[n];
+//     int *ptr = arr;
+//     printf("Enter the elements:\n");
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", (ptr + i));
+//     }
+//     printf("Enter the position to delete: ");
+//     scanf("%d", &pos);
+//     for (int i = pos - 1; i < n - 1; i++) {
+//         *(ptr + i) = *(ptr + i + 1);
+//     }
+//     printf("Updated array: ");
+//     for (int i = 0; i < n - 1; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     return 0;
+// }
+
+
+// Assignment 5(16)
+
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    int *ptr = arr;
+    printf("Enter the elements:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", (ptr + i));
+    }
+    int newSize = 0;
+    for (int i = 0; i < n; i++) {
+        int duplicate = 0;
+        for (int j = 0; j < newSize; j++) {
+            if (*(ptr + j) == *(ptr + i)) {
+                duplicate = 1;
+                break;
+            }
+        }
+        if (!duplicate) {
+            *(ptr + newSize) = *(ptr + i);
+            newSize++;
+        }
+    }
+    printf("Array after removing duplicates: ");
+    for (int i = 0; i < newSize; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    return 0;
+}
