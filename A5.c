@@ -405,34 +405,35 @@
 
 // Assignment 5(16)
 
-#include <stdio.h>
-int main() {
-    int n;
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    int arr[n];
-    int *ptr = arr;
-    printf("Enter the elements:\n");
-    for (int i = 0; i < n; i++) {
-        scanf("%d", (ptr + i));
-    }
-    int newSize = 0;
-    for (int i = 0; i < n; i++) {
-        int duplicate = 0;
-        for (int j = 0; j < newSize; j++) {
-            if (*(ptr + j) == *(ptr + i)) {
-                duplicate = 1;
-                break;
-            }
-        }
-        if (!duplicate) {
-            *(ptr + newSize) = *(ptr + i);
-            newSize++;
-        }
-    }
-    printf("Array after removing duplicates: ");
-    for (int i = 0; i < newSize; i++) {
-        printf("%d ", *(ptr + i));
-    }
-    return 0;
-}
+// #include <stdio.h>
+// int main() {
+//     int n;
+//     printf("Enter the number of elements: ");
+//     scanf("%d", &n);
+//     int arr[n];
+//     int *ptr = arr;
+//     printf("Enter the elements:\n");
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", (ptr + i));
+//     }
+//     int newSize = 0;
+//     for (int i = 0; i < n; i++) {
+//         int duplicate = 0;
+//         for (int j = 0; j < newSize; j++) {
+//             if (*(ptr + j) == *(ptr + i)) {
+//                 duplicate = 1;
+//                 break;
+//             }
+//         }
+//         if (!duplicate) {
+//             *(ptr + newSize) = *(ptr + i);
+//             newSize++;
+//         }
+//     }
+//     printf("Array after removing duplicates: ");
+//     for (int i = 0; i < newSize; i++) {
+//         printf("%d ", *(ptr + i));
+//     }
+//     return 0;
+// }
+
