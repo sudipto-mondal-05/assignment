@@ -124,12 +124,46 @@
 
 // Assignment 6(5)
 
+// #include <stdio.h>
+// int main() {
+//     int m, n;
+//     printf("Enter the number of rows and columns: \n");
+//     scanf("%d %d", &m, &n);
+//     int matrix1[m][n], matrix2[m][n], sum;
+//     printf("Enter the elements of the first matrix:\n");
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < n; j++) {
+//             scanf("%d", &matrix1[i][j]);
+//         }
+//     }
+//     printf("Enter the elements of the second matrix:\n");
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < n; j++) {
+//             scanf("%d", &matrix2[i][j]);
+//         }
+//     }
+//     printf("Sum of the matrices:\n");
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < n; j++) {
+//             sum = matrix1[i][j] + matrix2[i][j];
+//              printf("%d ", sum);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+
+// Assignment 6(6)
+
 #include <stdio.h>
 int main() {
-    int m, n;
-    printf("Enter the number of rows and columns: \n");
+    int m, n, p;
+    printf("Enter rows and columns of first matrix: ");
     scanf("%d %d", &m, &n);
-    int matrix1[m][n], matrix2[m][n], sum;
+    printf("Enter columns of second matrix: ");
+    scanf("%d", &p);
+    int matrix1[m][n], matrix2[n][p], product[m][p];
     printf("Enter the elements of the first matrix:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
@@ -137,18 +171,83 @@ int main() {
         }
     }
     printf("Enter the elements of the second matrix:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < p; j++) {
             scanf("%d", &matrix2[i][j]);
         }
     }
-    printf("Sum of the matrices:\n");
     for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            sum = matrix1[i][j] + matrix2[i][j];
-             printf("%d ", sum);
+        for (int j = 0; j < p; j++) {
+            product[i][j] = 0;
+            for (int k = 0; k < n; k++) {
+                product[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+    printf("Product of the matrices:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < p; j++) {
+            printf("%d ", product[i][j]);
         }
         printf("\n");
     }
     return 0;
 }
+
+
+// Assignment 6 (7)
+
+// #include <stdio.h>
+
+// int main() {
+//     int n;
+//     printf("Enter the number of rows for Pascal's Triangle: ");
+//     scanf("%d", &n);
+
+//     int triangle[n][n];
+
+//     for (int i = 0; i < n; i++) {
+//         for (int j = 0; j <= i; j++) {
+//             if (j == 0 || j == i) {
+//                 triangle[i][j] = 1; 
+//             } else {
+//                 triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j]; 
+//             }
+//         }
+//     }
+
+//     for (int i = 0; i < n; i++) {
+//         for (int space = 0; space < n - i - 1; space++) {
+//             printf("  ");
+//         }
+//         for (int j = 0; j <= i; j++) {
+//             printf("%4d", triangle[i][j]);
+//         }
+//         printf("\n");
+//     }
+
+//     return 0;
+// }
+
+
+//Assignment 6(8)
+
+// #include <stdio.h>
+// int main() {
+//     printf("Enter the size the square matrix: ");
+//     int n;
+//     scanf("%d", &n);
+//     int matrix[n][n];
+//     for (int i = 0; i < n; i++) {
+//         for (int j = 0; j < n; j++) {
+//             if (i == j) {
+//                 matrix[i][j] = 1;
+//             } else {
+//                 matrix[i][j] = 0;
+//             }
+//             printf("%d ", matrix[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
