@@ -64,34 +64,40 @@
 
 // Assignment 6(3)
 
-// #include <stdio.h>
-// int main() {
-//     int n;
-//     printf("Enter the size of the square matrix: ");
-//     scanf("%d", &n);
-//     int matrix[n][n], symmetric = 1;
-//     printf("Enter the elements of the matrix:\n");
-//     for (int i = 0; i < n; i++) {
-//         for (int j = 0; j < n; j++) {
-//             scanf("%d", &matrix[i][j]);
-//         }
-//     }
-//     for (int i = 0; i < n; i++) {
-//         for (int j = 0; j < n; j++) {
-//             printf("%d ", matrix[j][i]);
-//             if (matrix[i][j] != matrix[j][i]) {
-//                 symmetric = 0;
-//                 break;
-//             }
-//         }
-//         printf("\n");
-//     }
-//     if (symmetric)
-//         printf("The matrix is symmetric.\n");
-//     else
-//         printf("The matrix is not symmetric.\n");
-//     return 0;
-// }
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter the size of the square matrix: ");
+    scanf("%d", &n);
+    int matrix[n][n], symmetric = 1;
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] != matrix[j][i]) {
+                symmetric = 0;
+                break;
+            }
+        }
+        printf("\n");
+    }
+    printf("The new matrix is: \n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", matrix[j][i]);
+        }
+        printf("\n");
+    }
+    if (symmetric)
+        printf("The matrix is symmetric.\n");
+    else
+        printf("The matrix is not symmetric.\n");
+    return 0;
+}
 
 
 // Assignment 6(4)
@@ -156,43 +162,43 @@
 
 // Assignment 6(6)
 
-#include <stdio.h>
-int main() {
-    int m, n, p;
-    printf("Enter rows and columns of first matrix: ");
-    scanf("%d %d", &m, &n);
-    printf("Enter columns of second matrix: ");
-    scanf("%d", &p);
-    int matrix1[m][n], matrix2[n][p], product[m][p];
-    printf("Enter the elements of the first matrix:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            scanf("%d", &matrix1[i][j]);
-        }
-    }
-    printf("Enter the elements of the second matrix:\n");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < p; j++) {
-            scanf("%d", &matrix2[i][j]);
-        }
-    }
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < p; j++) {
-            product[i][j] = 0;
-            for (int k = 0; k < n; k++) {
-                product[i][j] += matrix1[i][k] * matrix2[k][j];
-            }
-        }
-    }
-    printf("Product of the matrices:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < p; j++) {
-            printf("%d ", product[i][j]);
-        }
-        printf("\n");
-    }
-    return 0;
-}
+// #include <stdio.h>
+// int main() {
+//     int m, n, p;
+//     printf("Enter rows and columns of first matrix: ");
+//     scanf("%d %d", &m, &n);
+//     printf("Enter columns of second matrix: ");
+//     scanf("%d", &p);
+//     int matrix1[m][n], matrix2[n][p], product[m][p];
+//     printf("Enter the elements of the first matrix:\n");
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < n; j++) {
+//             scanf("%d", &matrix1[i][j]);
+//         }
+//     }
+//     printf("Enter the elements of the second matrix:\n");
+//     for (int i = 0; i < n; i++) {
+//         for (int j = 0; j < p; j++) {
+//             scanf("%d", &matrix2[i][j]);
+//         }
+//     }
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < p; j++) {
+//             product[i][j] = 0;
+//             for (int k = 0; k < n; k++) {
+//                 product[i][j] += matrix1[i][k] * matrix2[k][j];
+//             }
+//         }
+//     }
+//     printf("Product of the matrices:\n");
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < p; j++) {
+//             printf("%d ", product[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
 
 
 // Assignment 6 (7)
