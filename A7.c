@@ -198,6 +198,3 @@ int main() {
 //     return 0;
 
 
-//YOUR MOM IS GAY.
-
-//DARK HUMOUR IS LIKE YOUR MOM, EVERYBODY GETS IT NOWADAYS.
