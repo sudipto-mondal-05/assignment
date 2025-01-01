@@ -11,9 +11,9 @@ struct cricket {
 
 int main() {
     struct cricket players[5];
-    int i, p = 0;
+    int i, p = 0, high=0;
 
-    
+
     printf("Enter details of 5 players:\n");
 
     for (i = 0; i < 5; i++) {
@@ -27,21 +27,28 @@ int main() {
         scanf("%f", &players[i].avg);
     }
 
-    
+
     for (i = 1; i < 5; i++) {
         if (players[i].avg > players[p].avg) {
             p = i;
+            high=players[i].avg;
         }
     }
 
-    
+
     printf("\nPlayer with the highest batting average:\n");
-    printf("Name: %s\n", players[p].player);
-    printf("Team: %s\n", players[p].team);
-    printf("Batting Average: %.2f\n", players[p].avg);
+
+    for (int k=0; k < 5; k++) {
+		if (players[k].avg==high) {
+    			printf("Name: %s\n", players[p].player);
+    			printf("Team: %s\n", players[p].team);
+    			printf("Batting Average: %f\n", players[p].avg);
+		}
+	}
 
     return 0;
 }
+
 
 
 //2.
@@ -265,39 +272,34 @@ int main() {
 //6.
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
     FILE *sourceFile, *targetFile;
     char ch;
 
-    // Check if correct number of arguments are provided
     if (argc != 3) {
         printf("Usage: %s <source_file> <target_file>\n", argv[0]);
         return 1;
     }
 
-    // Open the source file in read mode
     sourceFile = fopen(argv[1], "r");
     if (sourceFile == NULL) {
         printf("Error: Could not open source file %s\n", argv[1]);
         return 1;
     }
 
-    // Open the target file in write mode
     targetFile = fopen(argv[2], "w");
     if (targetFile == NULL) {
         printf("Error: Could not open or create target file %s\n", argv[2]);
-        fclose(sourceFile); // Close the source file
+        fclose(sourceFile);
         return 1;
     }
 
-    // Copy content from source to target file character by character
     while ((ch = fgetc(sourceFile)) != EOF) {
         fputc(ch, targetFile);
     }
 
-    // Close both files
+
     fclose(sourceFile);
     fclose(targetFile);
 
@@ -305,6 +307,8 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+
 
 
 
