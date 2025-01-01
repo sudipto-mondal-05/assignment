@@ -4,14 +4,14 @@
 #include <string.h>
 
 struct cricket {
-    char player_name[50];
-    char team_name[50];
-    float batting_average;
+    char player[50];
+    char team[50];
+    float avg;
 };
 
 int main() {
     struct cricket players[5];
-    int i, highest_index = 0;
+    int i, p = 0;
 
     
     printf("Enter details of 5 players:\n");
@@ -20,25 +20,25 @@ int main() {
 
         printf("\nPlayer %d:\n", i + 1);
         printf("Enter player name: ");
-        scanf(" %[^\n]", players[i].player_name);
+        scanf(" %[^\n]", players[i].player);
         printf("Enter team name: ");
-        scanf(" %[^\n]", players[i].team_name);
+        scanf(" %[^\n]", players[i].team);
         printf("Enter batting average: ");
-        scanf("%f", &players[i].batting_average);
+        scanf("%f", &players[i].avg);
     }
 
     
     for (i = 1; i < 5; i++) {
-        if (players[i].batting_average > players[highest_index].batting_average) {
-            highest_index = i;
+        if (players[i].avg > players[p].avg) {
+            p = i;
         }
     }
 
     
     printf("\nPlayer with the highest batting average:\n");
-    printf("Name: %s\n", players[highest_index].player_name);
-    printf("Team: %s\n", players[highest_index].team_name);
-    printf("Batting Average: %.2f\n", players[highest_index].batting_average);
+    printf("Name: %s\n", players[p].player);
+    printf("Team: %s\n", players[p].team);
+    printf("Batting Average: %.2f\n", players[p].avg);
 
     return 0;
 }
@@ -49,47 +49,48 @@ int main() {
 #include <stdio.h>
 #include <string.h>
 
-// Define the structure for a student
 struct student {
-    int roll_no;
+    int roll;
     char name[50];
-    float total_marks;
+    float marks;
 };
 
 int main() {
     int n, i;
-    struct student students[150]; // Array to store details of up to 150 students
+    struct student students[150];
 
-    // Input the number of students
     printf("Enter the number of students (not more than 150): ");
     scanf("%d", &n);
 
     if (n > 150) {
-        printf("Error: Number of students cannot exceed 150.\n");
-        return 1; // Exit the program
+        printf("Number of students cannot exceed 150.\n");
+        return 1;
     }
 
-    // Read details of each student
+
     for (i = 0; i < n; i++) {
         printf("\nEnter details for student %d:\n", i + 1);
         printf("Roll Number: ");
-        scanf("%d", &students[i].roll_no);
+        scanf("%d", &students[i].roll);
         printf("Name: ");
-        scanf(" %[^\n]", students[i].name); // Read name with spaces
+        scanf(" %[^\n]", students[i].name);
         printf("Total Marks: ");
-        scanf("%f", &students[i].total_marks);
+        scanf("%f", &students[i].marks);
     }
 
-    // Print list of students with marks >= 75
-    printf("\nList of students who scored 75 marks and above:\n");
+
+    printf("\n\nList of students who scored 75 marks and above:\n\n");
     printf("Roll No.\tName\t\tTotal Marks\n");
     printf("-------------------------------------------------\n");
 
     for (i = 0; i < n; i++) {
-        if (students[i].total_marks >= 75) {
-            printf("%d\t\t%s\t\t%.2f\n", students[i].roll_no, students[i].name, students[i].total_marks);
+        if (students[i].marks >= 75) {
+            printf("%d\t\t%s\t\t%.2f\n", students[i].roll, students[i].name, students[i].marks);
         }
     }
+
+    printf("-------------------------------------------------\n");
+
 
     return 0;
 }
@@ -100,164 +101,163 @@ int main() {
 #include <stdio.h>
 #include <string.h>
 
-// Define the structure for a book
-struct book {
+
+struct books {
     char name[100];
     int id;
     float price;
     char subject[50];
 };
 
-// Function prototypes
-void display_books_in_price_range(struct book books[], int n, float min_price, float max_price);
-void display_books_by_subject(struct book books[], int n, char subject[]);
+
+void price_range(struct books BOOKS[], int n, float min, float max);
+void by_subject(struct books BOOKS[], int n, char subject[]);
 
 int main() {
     int n, i;
-    printf("Enter the number of books: ");
+    printf("Enter the number of BOOKS: ");
     scanf("%d", &n);
 
-    struct book books[n]; // Array to store details of 'n' books
+    struct books BOOKS[n]; 
 
-    // Input details for each book
+    
     for (i = 0; i < n; i++) {
-        printf("\nEnter details for book %d:\n", i + 1);
+        printf("\nEnter details for books %d:\n", i + 1);
         printf("Name: ");
-        scanf(" %[^\n]", books[i].name); // Read name with spaces
+        scanf(" %[^\n]", BOOKS[i].name); 
         printf("ID: ");
-        scanf("%d", &books[i].id);
+        scanf("%d", &BOOKS[i].id);
         printf("Price: ");
-        scanf("%f", &books[i].price);
+        scanf("%f", &BOOKS[i].price);
         printf("Subject: ");
-        scanf(" %[^\n]", books[i].subject); // Read subject with spaces
+        scanf(" %[^\n]", BOOKS[i].subject); 
     }
 
-    // Search by price range
-    float min_price, max_price;
+    
+    float min, max;
     printf("\nEnter the minimum price: ");
-    scanf("%f", &min_price);
+    scanf("%f", &min);
     printf("Enter the maximum price: ");
-    scanf("%f", &max_price);
-    printf("\nBooks in the price range %.2f to %.2f:\n", min_price, max_price);
-    display_books_in_price_range(books, n, min_price, max_price);
+    scanf("%f", &max);
+    printf("\nBOOKS in the price range %f to %f:\n", min, max);
+    price_range(BOOKS, n, min, max);
 
-    // Search by subject
+  
     char search_subject[50];
     printf("\nEnter the subject to search for: ");
     scanf(" %[^\n]", search_subject);
-    printf("\nBooks in the subject '%s':\n", search_subject);
-    display_books_by_subject(books, n, search_subject);
+    printf("\nBOOKS in the subject '%s':\n", search_subject);
+    by_subject(BOOKS, n, search_subject);
 
     return 0;
 }
 
-// Function to display books in a given price range
-void display_books_in_price_range(struct book books[], int n, float min_price, float max_price) {
-    int found = 0;
+
+void price_range(struct books BOOKS[], int n, float min, float max) {
+    int f = 0;
     for (int i = 0; i < n; i++) {
-        if (books[i].price >= min_price && books[i].price <= max_price) {
-            printf("Name: %s, ID: %d, Price: %.2f, Subject: %s\n", books[i].name, books[i].id, books[i].price, books[i].subject);
-            found = 1;
+        if (BOOKS[i].price >= min && BOOKS[i].price <= max) {
+            printf("Name: %s, ID: %d, Price: %f, Subject: %s\n", BOOKS[i].name, BOOKS[i].id, BOOKS[i].price, BOOKS[i].subject);
+            f = 1;
         }
     }
-    if (!found) {
-        printf("No books found in the given price range.\n");
+    if (!f) {
+        printf("No BOOKS found in the given price range.\n");
     }
 }
 
-// Function to display books by a specific subject
-void display_books_by_subject(struct book books[], int n, char subject[]) {
-    int found = 0;
+
+void by_subject(struct books BOOKS[], int n, char subject[]) {
+    int f = 0;
     for (int i = 0; i < n; i++) {
-        if (strcmp(books[i].subject, subject) == 0) {
-            printf("Name: %s, ID: %d, Price: %.2f, Subject: %s\n", books[i].name, books[i].id, books[i].price, books[i].subject);
-            found = 1;
+        if (strcmp(BOOKS[i].subject, subject) == 0) {
+            printf("Name: %s, ID: %d, Price: %f, Subject: %s\n", BOOKS[i].name, BOOKS[i].id, BOOKS[i].price, BOOKS[i].subject);
+            f = 1;
         }
     }
-    if (!found) {
-        printf("No books found for the subject '%s'.\n", subject);
+    if (!f) {
+        printf("No BOOKS on the subject '%s'.\n", subject);
     }
 }
+
 
 //4.
 
 #include <stdio.h>
 
 int main() {
-    FILE *file;
-    char filename[100];
+
+    FILE *fptr;
+    char chh[100];
+    char c[105];
     char ch;
-    int character_count = 0;
+    int n = 0;
 
-    // Get the filename from the user
-    printf("Enter the name of the file: ");
-    scanf("%s", filename);
+    printf("Enter the name of the text file without adding extension: ");
+    scanf("%s", chh);
 
-    // Open the file in read mode
-    file = fopen(filename, "r");
+    sprintf(c, "%s.txt", chh);
 
-    // Check if the file exists
-    if (file == NULL) {
-        printf("Error: Could not open file %s\n", filename);
+    fptr = fopen(c, "r");
+
+    if (fptr == NULL) {
+        printf("No Such File Exists.");
         return 1;
     }
 
-    // Read characters one by one and count them
-    while ((ch = fgetc(file)) != EOF) {
-        character_count++;
+    while ((ch = fgetc(fptr)) != EOF) {
+        n++;
     }
 
-    // Close the file
-    fclose(file);
+    fclose(fptr);
 
-    // Display the total number of characters
-    printf("Total number of characters in the file: %d\n", character_count);
+    printf("Total number of characters in the file: %d\n", n);
 
     return 0;
 }
+
 
 //5.
 
 #include <stdio.h>
 
 int main() {
-    FILE *sourceFile, *targetFile;
-    char sourceFilename[100], targetFilename[100];
+    FILE *src, *trgt;
+    char a[100], b[100], xx[105], yy[105];
     char ch;
 
-    // Get the source file name
-    printf("Enter the name of the source file: ");
-    scanf("%s", sourceFilename);
+    printf("Enter the name of the source text file (without extension): ");
+    scanf("%s", a);
 
-    // Get the target file name
-    printf("Enter the name of the target file: ");
-    scanf("%s", targetFilename);
+    printf("Enter the name of the target text file (without extension): ");
+    scanf("%s", b);
 
-    // Open the source file in read mode
-    sourceFile = fopen(sourceFilename, "r");
-    if (sourceFile == NULL) {
-        printf("Error: Could not open source file %s\n", sourceFilename);
+    sprintf(xx, "%s.txt", a);
+
+    sprintf(yy, "%s.txt", b);
+
+
+    src = fopen(xx, "r");
+    if (src == NULL) {
+        printf("No Such File Exists.");
         return 1;
     }
 
-    // Open the target file in write mode
-    targetFile = fopen(targetFilename, "w");
-    if (targetFile == NULL) {
-        printf("Error: Could not open or create target file %s\n", targetFilename);
-        fclose(sourceFile); // Close the source file
+    trgt = fopen(yy, "w");
+    if (trgt == NULL) {
+        printf("No Such File Exists.");
+        fclose(src); 
         return 1;
     }
 
-    // Copy content from source to target file character by character
-    while ((ch = fgetc(sourceFile)) != EOF) {
-        fputc(ch, targetFile);
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, trgt);
     }
 
-    // Close both files
-    fclose(sourceFile);
-    fclose(targetFile);
+    fclose(src);
+    fclose(trgt);
 
-    printf("Contents copied successfully from %s to %s\n", sourceFilename, targetFilename);
+    printf("Contents copied successfully from %s to %s\n", a, b);
 
     return 0;
 }
