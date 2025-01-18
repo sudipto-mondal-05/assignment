@@ -1,53 +1,55 @@
 // 1 
 
-// #include <stdio.h>
+#include <stdio.h>
 
-// int main() {
-//     char str[100];  
-//     int length = 0;
-//     char *ptr;
+int main() {
+    char str[100];  
+    int length = 0;
+    char *ptr;
 
-//     printf("Enter a string: ");
-//     fgets(str, sizeof(str), stdin); 
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin); 
 
-//     ptr = str; 
+    ptr = str; 
 
-//     while (*ptr != '\0' && *ptr != '\n') {
-//         length++;
-//         ptr++;
-//     }
+    while (*ptr != '\0' && *ptr != '\n') {
+        length++;
+        ptr++;
+    }
 
-//     printf("The length of the string is: %d\n", length);
+    printf("The length of the string is: %d\n", length);
 
-//     return 0;
-// }
+    return 0;
+}
 
 // 2 
 
-// #include <stdio.h>
-// int main(){
-//     char str1[100];
-//     char str2[100];
-//     char *ptr;
-//     ptr = str1;
+#include <stdio.h>
 
-//     printf("Enter you string: ");
-//     fgets(str1, sizeof(str1), stdin);
+int main(){
+    char str1[100];
+    char str2[100];
+    char *ptr;
+    ptr = str1;
+
+    printf("Enter you string: ");
+    fgets(str1, sizeof(str1), stdin);
     
-//     int i = 0;
-//     while(*ptr != '\0'){
-//         str2[i] = str1[i];
-//         i++;
-//         ptr++;
-//     } 
-//     str2[i] = '\0';
-//     printf("The copied strinh is: %s", str2);
-//     return 0;
-// }
+    int i = 0;
+    while(*ptr != '\0'){
+        str2[i] = str1[i];
+        i++;
+        ptr++;
+    } 
+    str2[i] = '\0';
+    printf("The copied strinh is: %s", str2);
+    return 0;
+}
 
 // 3 
  
- #include <stdio.h>
+#include <stdio.h>
+
 int main(){
     char str1[100];
     char str2[100];
